@@ -1,0 +1,3 @@
+{
+    "mongoURI":"mongodb+srv://Martin:Martin@mern.wercy.mongodb.net/reactDocker?retryWrites=true&w=majority"
+}

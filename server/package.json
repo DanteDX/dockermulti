@@ -1,0 +1,14 @@
+{
+    "dependencies": {
+        "express":"*",
+        "nodemon":"*",
+        "cors":"*",
+        "mongoose":"*",
+        "config":"*",
+        "path":"*"   
+    },
+    "scripts":{
+        "dev":"nodemon index.js",
+        "start":"node index.js"
+    }
+}
