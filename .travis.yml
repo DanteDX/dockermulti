@@ -14,7 +14,7 @@ after_success:
   #loggin into dockerhub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - curl https://cli-assets.heroku.com/install.sh | sh
-  - docker login --username="piyal.quantum789@gmail.com" --password="084800ef-3f47-4b90-a86b-3fa3e5d8818f" registry.heroku.com
+  - docker login --username="piyal.quantum789@gmail.com" --password="a47162c8-5e51-4220-a334-171ea203119e" registry.heroku.com
 
 script:
   - docker build -t dantedxwolf/reactmulticlient ./client
