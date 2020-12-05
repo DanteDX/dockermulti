@@ -18,8 +18,11 @@ after_success:
 
 script:
   - docker build -t dantedxwolf/reactmulticlient ./client
+  - docker tag dantedxwolf/reactmulticlient registry.heroku.com/ancient-scrubland-27709/web 
   - docker build -t dantedxwolf/reactmultiserver ./server
+  - docker tag dantedxwolf/reactmultiserver registry.heroku.com/ancient-scrubland-27709/web 
   - docker build -t dantedxwolf/reactmultinginx ./nginx
+  - docker tag dantedxwolf/reactmultinginx registry.heroku.com/ancient-scrubland-27709/web 
 
 deploy:
   provider: script
@@ -27,6 +30,7 @@ deploy:
     docker push dantedxwolf/reactmulticlient;
     docker push dantedxwolf/reactmultiserver;
     docker push dantedxwolf/reactmultinginx;
+    docker push registry.heroku.com/ancient-scrubland-27709/web;
     heroku container:release web --app "ancient-scrubland-27709"
   on:
     branch: master
