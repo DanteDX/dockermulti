@@ -24,10 +24,10 @@ script:
 deploy:
   provider: script
   script:
-    - docker push dantedxwolf/reactmulticlient
-    - docker push dantedxwolf/reactmultiserver
-    - docker push dantedxwolf/reactmultinginx
-    - heroku container:release web --app "ancient-scrubland-27709"
+    docker push dantedxwolf/reactmulticlient
+    docker push dantedxwolf/reactmultiserver
+    docker push dantedxwolf/reactmultinginx
+    heroku container:release web --app "ancient-scrubland-27709"
 
 
   #pushing images to dockerhub
