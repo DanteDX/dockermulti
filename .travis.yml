@@ -11,14 +11,14 @@ script:
   - docker run -e CI=true dantedxwolf/imagetest npm run test
 
 after_success:
-  - docker build -t reactmulticlient ./client
-  - docker build -t reactmultiserver ./server
-  - docker build -t reactmultinginx ./nginx
+  - docker build -t dantedxwolf/reactmulticlient ./client
+  - docker build -t dantedxwolf/reactmultiserver ./server
+  - docker build -t dantedxwolf/reactmultinginx ./nginx
 
   #loggin into dockerhub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
   #pushing images to dockerhub
-  - docker push reactmulticlient
-  - docker push reactmultiserver
-  - docker push reactmultinginx
+  - docker push dantedxwolf/reactmulticlient
+  - docker push dantedxwolf/reactmultiserver
+  - docker push dantedxwolf/reactmultinginx
