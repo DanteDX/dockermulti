@@ -22,8 +22,3 @@ after_success:
   - docker push dantedxwolf/reactmulticlient
   - docker push dantedxwolf/reactmultiserver
   - docker push dantedxwolf/reactmultinginx
-
-deploy:
-  provider: heroku
-  api_key: "084800ef-3f47-4b90-a86b-3fa3e5d8818f"
-  app: "ancient-scrubland-27709"
