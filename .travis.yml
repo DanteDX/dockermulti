@@ -27,7 +27,9 @@ deploy:
     docker push dantedxwolf/reactmulticlient
     docker push dantedxwolf/reactmultiserver
     docker push dantedxwolf/reactmultinginx
-    heroku container:release web --app "ancient-scrubland-27709"
+    heroku container:release web "ancient-scrubland-27709"
+  on:
+    branch: master
 
 
   #pushing images to dockerhub
