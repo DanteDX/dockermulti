@@ -7,18 +7,30 @@ services:
 before_install:
   - docker build -t dantedxwolf/imagetest -f ./client/Dockerfile.dev ./client
 
-script:
+# script:
   - docker run -e CI=true dantedxwolf/imagetest npm run test
 
 after_success:
+  #loggin into dockerhub
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - curl https://cli-assets.heroku.com/install.sh | sh
+  - docker login --username="piyal.quantum789@gmail.com" --password="084800ef-3f47-4b90-a86b-3fa3e5d8818f" registry.heroku.com
+
+script:
   - docker build -t dantedxwolf/reactmulticlient ./client
   - docker build -t dantedxwolf/reactmultiserver ./server
   - docker build -t dantedxwolf/reactmultinginx ./nginx
 
-  #loggin into dockerhub
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+deploy:
+  provider: script
+  script:
+    - docker push dantedxwolf/reactmulticlient
+    - docker push dantedxwolf/reactmultiserver
+    - docker push dantedxwolf/reactmultinginx
+    - heroku container:release web --app "ancient-scrubland-27709"
+
 
   #pushing images to dockerhub
-  - docker push dantedxwolf/reactmulticlient
-  - docker push dantedxwolf/reactmultiserver
-  - docker push dantedxwolf/reactmultinginx
+  # - docker push dantedxwolf/reactmulticlient
+  # - docker push dantedxwolf/reactmultiserver
+  # - docker push dantedxwolf/reactmultinginx
