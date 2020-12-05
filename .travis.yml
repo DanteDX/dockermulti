@@ -24,9 +24,9 @@ script:
 deploy:
   provider: script
   script:
-    docker push dantedxwolf/reactmulticlient
-    docker push dantedxwolf/reactmultiserver
-    docker push dantedxwolf/reactmultinginx
+    docker push dantedxwolf/reactmulticlient;
+    docker push dantedxwolf/reactmultiserver;
+    docker push dantedxwolf/reactmultinginx;
     heroku container:release web "ancient-scrubland-27709"
   on:
     branch: master
